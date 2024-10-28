@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,5 +60,32 @@ class User extends Authenticatable
     public function pemberitahuan(): HasMany
     {
         return $this->hasMany(Pemberitahuan::class, 'user_id');
+    }
+
+    public function scopeFilter(Builder $query, array $filters): void
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn($query, $search) =>
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('username', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+        );
+        
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    public static function user_role(): array
+    {
+        return [ 
+            'user', 
+            'admin', 
+            'master', 
+            'treasurer', 
+        ];
     }
 }

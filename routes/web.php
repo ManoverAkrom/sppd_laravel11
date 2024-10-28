@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Database\Query\IndexHint;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
@@ -96,3 +97,5 @@ Route::get('dashboard/posts/checkSlug', [DashboardPostController::class, 'checkS
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->middleware(IsAdmin::class);
+
+Route::resource('/dashboard/users', AdminUserController::class)->middleware(IsAdmin::class);
