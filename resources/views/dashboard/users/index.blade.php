@@ -139,6 +139,9 @@
                             <th scope="col" class="px-2 py-3 text-center">
                                 Aksi
                             </th>
+                            <th scope="col" class="px-2 py-3 text-center">
+                                Reset Password
+                            </th>
                         </tr>
                     </thead>
 
@@ -152,10 +155,10 @@
                                     {{ $loop->iteration }}
                                 </th>
 
-                                <td class="w-80 ps-2 pe-1 py-3 text-left text-wrap border-1 uppercase">
+                                <td class="w-60 ps-2 pe-1 py-3 text-left text-wrap border-1 uppercase">
                                     {{ $user->name }}
                                 </td>
-                                <td class="w-80 ps-2 pe-1 py-3 text-left text-wrap border-1 capitalize">
+                                <td class="w-60 ps-2 pe-1 py-3 text-left text-wrap border-1">
                                     {{ $user->username }}
                                 </td>
                                 <td class="w-96 ps-2 pe-1 py-3 text-left text-wrap border-1">
@@ -164,10 +167,11 @@
                                 <td scope="row" class="w-24 ps-2 pe-1 py-3 text-left border-1 uppercase">
                                     {{ $user->role }}</td>
 
-                                <td class="w-38 px-2 py-3 text-center text-wrap">
+                                <td class="w-36 px-2 py-3 text-center text-wrap">
+
                                     <a href="/dashboard/users/{{ $user->username }}">
                                         <button type="button"
-                                            class="text-white bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800 shadow-lg shadow-indigo-500/50 dark:shadow-lg dark:shadow-indigo-800/80 font-medium rounded-lg text-sm p-1 text-center m-1 ">
+                                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm p-1 text-center m-1 ">
                                             <svg class="w-[20px] h-[20px] text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 fill="none" viewBox="0 0 24 24">
@@ -198,7 +202,7 @@
                                         @csrf
                                         <button
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm p-1 text-center m-1"
-                                            onclick="return confirm('Yakin mau dihapus?')">
+                                            onclick="return confirm('Yakin mau hapus {{ $user->name }}?')">
                                             <span class="bi bi-trash3">
                                                 <svg class="w-[20px] h-[20px] text-white dark:text-white"
                                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -212,6 +216,18 @@
                                         </button>
                                         </a>
                                     </form>
+
+                                </td>
+                                <td scope="row" class="w-24 px-2 py-3 text-center border-1 uppercase">
+                                    <a href="/dashboard/reset/{{ $user->username }}"
+                                        class="inline-flex reset-password align-middle">
+                                        <button type="button" data-modal-target="crud-modal"
+                                            data-modal-toggle="crud-modal"
+                                            class="text-white bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 hover:bg-gradient-to-br focus:text-emerald-200 shadow-lg shadow-slate-500/50 dark:shadow-lg dark:shadow-slate-800/80 font-medium rounded-lg text-sm py-1 px-4 text-center m-1 ">
+                                            RESET
+                                        </button>
+
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

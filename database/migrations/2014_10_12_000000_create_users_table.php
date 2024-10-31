@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nip')->nullable()->default('-');
             $table->string('pangkat')->nullable()->default('-');
-            $table->string('gol')->nullable()->default('-');
+            // $table->string('gol')->nullable()->default('-');
             $table->string('jabatan')->nullable();
             $table->string('foto')->nullable();
             $table->rememberToken();

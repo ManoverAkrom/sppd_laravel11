@@ -26,7 +26,11 @@
 
                             </div>
                         @else
-                            <div class="text-center">{{ $user->foto }}</div>
+                            <div class="flex justify-center text-center mb-3 ">
+                                <img src="{{ asset('storage/' . $user->foto) }}" alt="{{ $user->name }}"
+                                    width="175" height="175"
+                                    class="rounded-2xl border-dotted border-2 border-blue-500 hover:border-none p-1">
+                            </div>
                         @endif
 
                         <div class="text-center font-bold text-lg">{{ $user->name }}</div>
@@ -169,7 +173,6 @@
             </div>
         </div>
     </div>
-
 
 
 </x-dashboard.layout>

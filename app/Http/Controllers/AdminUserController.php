@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
 
 class AdminUserController extends Controller
@@ -73,6 +74,7 @@ class AdminUserController extends Controller
             'title' => "Edit Akun",
             'user' => $user,
             'roles' => User::user_role(),
+            'ranks' => User::rank(),
         ]);
     }
 
@@ -81,7 +83,35 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'role' => 'required',
+            'nip' => 'string|max:18',
+            'pangkat' => 'nullable',
+            'jabatan' => 'nullable',
+            'foto' => 'mimes:svg, jpg,jpeg,png|file|max:512',
+        ];
+
+        if($request->username != $user->username) {
+            $rules['username'] = 'bail|required|unique:users|alpha_dash';
+        }
+        if($request->email != $user->email) {
+            $rules['email'] = 'required|email:dns|unique:users,email';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if($request->file('foto')) {
+            if($request->oldFoto){
+                Storage::delete($request->oldFoto);
+            }
+            $validatedData['foto'] = $request->file('foto')->store('user-foto');
+        }
+
+        $validatedData['id'] = $user->id;
+
+        User::where('id', $user->id)->update($validatedData);
+        return redirect('/dashboard/users')->with('success', 'Akun ' . $user->name . ' Berhasil diperbarui');
     }
 
     /**
@@ -89,6 +119,10 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if($user->file){
+            Storage::delete($user->foto);
+        }
+        User::destroy($user->id);
+        return redirect('/dashboard/users')->with('success', 'Data user : ' . $user->name  . ', Berhasil dihapus');
     }
 }

@@ -40,6 +40,7 @@
 
     <script src="{{ asset('assets/js/admin-pannel.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
 
     {{-- Dropzone Script --}}
     <script src="./node_modules/preline/dist/preline.js"></script>

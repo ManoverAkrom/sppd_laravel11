@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Database\Query\IndexHint;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminCategoryController;
@@ -89,7 +90,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Dashboard',
-        'posts' => Post::all()
+        'posts' => Post::all(),
+        'users' => User::all(),
     ]);
 })->middleware('auth');
 
@@ -98,4 +100,8 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->middleware(IsAdmin::class);
 
-Route::resource('/dashboard/users', AdminUserController::class)->middleware(IsAdmin::class);
+Route::resource('/dashboard/users', AdminUserController::class)->middleware('auth');
+
+// Route::resource('dashboard/reset', UserController::class)->middleware('auth');
+Route::get('dashboard/reset/{user}', [UserController::class, 'edit'])->name('dashboard.reset.edit')->middleware('auth');
+Route::post('dashboard/reset/{user}', [UserController::class, 'update'])->name('dashboard.reset.update')->middleware('auth');

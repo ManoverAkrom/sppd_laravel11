@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         ])->create();
 
         Category::factory(3)->create();
+        User::factory(10)->create();
 
         Pemberitahuan::factory(7)->create();
 
