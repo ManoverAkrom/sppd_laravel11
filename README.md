@@ -71,3 +71,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 -   Menambahkan Fungsi Dashboard Admin Category (Tambah, Edit, Show, Delete)
 -   Menambahkan Fungsi Dashboard Admin User (Tambah, Edit, Show, Delete) : Akun - Semua
+
+31 Oktober 2024
+
+-   Menambahkan fungsi review Foto pada edit User
+-   Menambahkan fungsi Reset Password
