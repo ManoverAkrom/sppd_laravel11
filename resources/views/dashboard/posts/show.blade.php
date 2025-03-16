@@ -297,7 +297,7 @@
                     </a>
                 </div>
                 <div class="text-center my-5">
-                    <button type="button"
+                    <button type="button" onclick="printPDF('{{ $post->slug }}')"
                         class="block w-full rounded border-4 border-indigo-500 text-indigo-500 hover:border-indigo-600 hover:bg-indigo-400 hover:bg-opacity-10 hover:text-indigo-600 focus:border-indigo-700 focus:text-indigo-700 active:border-indigo-800 active:text-indigo-800 dark:border-indigo-300 dark:text-indigo-300 dark:hover:hover:bg-indigo-300 px-6 pb-2 pt-2.5 text-xl font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0">
                         <svg class="inline me-1 w-[24px] h-[24px]" viewBox="0 0 512 512" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">

@@ -8,6 +8,8 @@ use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+// use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 
 class DashboardPostController extends Controller
 {
@@ -175,4 +177,6 @@ class DashboardPostController extends Controller
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
+
+
 }

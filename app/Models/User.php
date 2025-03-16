@@ -70,6 +70,7 @@ class User extends Authenticatable
             $query->where('name', 'like', '%' . $search . '%')
                 ->orWhere('username', 'like', '%' . $search . '%')
                 ->orWhere('email', 'like', '%' . $search . '%')
+                ->orWhere('role', 'like', '%' . $search . '%')
         );
         
     }

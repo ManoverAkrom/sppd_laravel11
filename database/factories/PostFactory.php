@@ -41,6 +41,8 @@ class PostFactory extends Factory
             'jam_berangkat' => fake()->time('H:i'),
             'maksud' => $this->faker->sentence(mt_rand(3, 8)),
             'keterangan' => $this->faker->paragraph(),
+            'status' => fake()->randomElement(['diajukan', 'ditolak', 'disetujui']),
+
 
             'created_at' => $this->faker->dateTimeBetween('-4 years', 'now'),
             'updated_at' => $this->faker->dateTimeThisMonth(),

@@ -121,20 +121,6 @@
                     </a>
                 </div>
                 <div class="text-center my-5">
-                    <button type="button"
-                        class="block w-full rounded border-4 border-indigo-500 text-indigo-500 hover:border-indigo-600 hover:bg-indigo-400 hover:bg-opacity-10 hover:text-indigo-600 focus:border-indigo-700 focus:text-indigo-700 active:border-indigo-800 active:text-indigo-800 dark:border-indigo-300 dark:text-indigo-300 dark:hover:hover:bg-indigo-300 px-6 pb-2 pt-2.5 text-xl font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0">
-                        <svg class="inline me-1 w-[24px] h-[24px]" viewBox="0 0 512 512" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
-                                clip-rule="evenodd">
-                            </path>
-
-                        </svg>
-                        Print
-                    </button>
-                </div>
-                <div class="text-center my-5">
                     <form action="/dashboard/users/{{ $user->username }}" method="post" class="inline">
                         @method('delete')
                         @csrf

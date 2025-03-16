@@ -59,3 +59,12 @@ function previewImage() {
         }
     });
 }
+function printPDF(slug) {
+    // Buka jendela baru
+    const pdfWindow = window.open("/dashboard/pdf/" + slug);
+
+    // Tunggu hingga jendela baru dimuat
+    pdfWindow.onload = function () {
+        pdfWindow.print(); // Tampilkan dialog print untuk jendela baru
+    };
+}

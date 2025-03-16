@@ -59,7 +59,7 @@ return new class extends Migration
             $table->string('maksud')->nullable();
             $table->string('keterangan')->nullable();
             
-            $table->enum('status', ['ditinjau', 'disetujui', 'ditolak'])->default('ditinjau');
+            $table->enum('status', ['diajukan', 'disetujui', 'ditolak'])->default('diajukan');
             
             $table->timestamps();
             

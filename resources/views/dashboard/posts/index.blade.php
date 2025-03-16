@@ -136,7 +136,7 @@
                                 Tanggal
                             </th>
                             <th scope="col" class="w-5 px-2 py-3 text-center">
-                                Kategory
+                                Kategori
                             </th>
                             <th scope="col" class="w-2 px-2 py-3 text-center">
                                 Status
@@ -198,8 +198,8 @@
 
                                         </button>
                                     </a>
-                                    <a href="">
-                                        <button type="button"
+                                    <a href="javascript:void(0);">
+                                        <button type="button" onclick="printPDF('{{ $post->slug }}')"
                                             class="text-white bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 shadow-lg shadow-primary-500/50 dark:shadow-lg dark:shadow-primary-800/80 font-medium rounded-lg text-sm p-1 text-center m-1 ">
                                             <svg class="w-[20px] h-[20px] text-white dark:text-white"
                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -228,6 +228,7 @@
                                             </span>
                                         </button>
                                         </a>
+
                                     </form>
                                 </td>
                             </tr>

@@ -10,6 +10,7 @@ export default {
         "./node_modules/flowbite/**/*.js",
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "node_modules/preline/dist/*.js",
+        "./node_modules/flowbite/**/*.js",
     ],
     darkMode: "class",
     theme: {
@@ -48,6 +49,10 @@ export default {
                     900: "#1e3a8a",
                     950: "#172554",
                 },
+                primaryColor: "#00B8FF",
+                secondaryColor: "#001F2B",
+                shadesOfBlue: "#00719c",
+                mainGray: "#e5e5e5",
             },
         },
     },
@@ -55,6 +60,7 @@ export default {
         require("flowbite/plugin"),
         require("flowbite-typography"),
         require("preline/plugin"),
+        require("flowbite/plugin"),
     ],
     safelist: [
         "bg-red-100",

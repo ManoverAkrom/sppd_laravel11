@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-gray-100">
+<html lang="en" class="h-full bg-gray-100 scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="shortcut icon" href="\img\web-logo.png">
+
+    {{-- Native --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 
     {{-- Tailwind --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -33,6 +36,8 @@
         </main>
     </div>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/apexchart.js') }}"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,9 @@
 <!-- navbar -->
-<div class="py-1 px-6 bg-[#ffffff] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+<div class="py-1 px-6 backdrop-blur-md bg-white/30 flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
     <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
         <i class="ri-menu-line"></i>
     </button>
 
-    {{-- <div class="flex justify-center">
-        <div class=" w-full text-white bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 shadow-lg shadow-primary-500/50 dark:shadow-lg dark:shadow-primary-800/80 font-medium rounded-lg text-sm p-1 text-center mt-1 mb-4 py-3" style="cursor:pointer;">
-            <h1 class="text-2xl font-semibold tracking-tight text-white">{{ $title }}</h1>
-        </div>
-    </div> --}}
 
     <ul class="ml-auto flex items-center">
         <li class="mr-1 dropdown">
@@ -38,7 +33,7 @@
             <button type="button"
                 class="dropdown-toggle text-gray-400 mr-4 w-8 h-8 rounded flex items-center justify-center  hover:text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    class="hover:bg-gray-100 rounded-full" viewBox="0 0 24 24"
+                    class="hover:bg-white/30 hover:backdrop-blur-sm rounded-full" viewBox="0 0 24 24"
                     style="fill: gray;transform: ;msFilter:;">
                     <path
                         d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z">
@@ -46,7 +41,7 @@
                 </svg>
             </button>
             <div
-                class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                class="dropdown-menu shadow-md shadow-black/20 z-30 hidden max-w-xs w-full backdrop-blur-xl bg-white/95 rounded-md border border-gray-100 mt-10">
                 <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
                     <button type="button" data-tab="notification" data-tab-page="notifications"
                         class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
@@ -209,11 +204,25 @@
                 <!-- Dropdown Button -->
                 <div class="flex">
                     <button
-                        class="flex ms-5 my-2 h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
+                        class="flex ms-5 my-2 h-9 w-9 items-center justify-center rounded-full bg-transparent text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
                         @click="isOpen=!isOpen">
-                        <img class="w-full object-cover" src="{{ asset('img/1.jfif') }}" alt="Profile">
-                        <div class="top-1 left-12 absolute w-3 h-3 bg-lime-400 border-2 border-white rounded-full animate-ping"></div>
-                        <div class="top-1 left-12 absolute w-3 h-3 bg-lime-500 border-2 border-white rounded-full"></div>
+                        @if (auth()->user()->foto == '' || auth()->user()->foto == 'NULL')
+                            <svg class="w-10 h-10 text-white dark:text-gray-800 " aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        @else
+                            <img class="w-full object-cover" src="{{ asset('storage/' . auth()->user()->foto) }}"
+                                alt="{{ auth()->user()->name }}">
+                        @endif
+                        <div
+                            class="top-1 left-12 absolute w-3 h-3 bg-lime-400 border-2 border-white rounded-full animate-ping">
+                        </div>
+                        <div class="top-1 left-12 absolute w-3 h-3 bg-lime-500 border-2 border-white rounded-full">
+                        </div>
                     </button>
                     <div class="p-2 md:block text-left cursor-pointer" @click="isOpen=!isOpen">
                         <h2 class="text-sm font-semibold text-gray-800">{{ auth()->user()->name }}</h2>
@@ -228,7 +237,18 @@
                     <div class="flex gap-3 items-center">
                         <div
                             class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                            <img class="w-full object-cover" src="{{ asset('img/1.jfif') }}" alt="Profile">
+                            @if (auth()->user()->foto == '' || auth()->user()->foto == 'NULL')
+                                <svg class="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            @else
+                                <img class="w-full object-cover" src="{{ asset('storage/' . auth()->user()->foto) }}"
+                                    alt="{{ auth()->user()->name }}">
+                            @endif
                         </div>
                         <div>
                             <div class="flex gap-1 text-sm font-semibold">
@@ -259,14 +279,15 @@
                     <div class="border-t border-slate-500/30"></div>
                     <div class="flex flex-col">
                         <a href="/dashboard" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="20" fill="currentColor"
-                                viewBox="0 0 576 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="20"
+                                fill="currentColor" viewBox="0 0 576 512">
                                 <path fill-rule="evenodd"
                                     d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185l0-121c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32l0 36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1l32 0 0 69.7c-.1 .9-.1 1.8-.1 2.8l0 112c0 22.1 17.9 40 40 40l16 0c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2l31.9 0 24 0c22.1 0 40-17.9 40-40l0-24 0-64c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 64 0 24c0 22.1 17.9 40 40 40l24 0 32.5 0c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1l16 0c22.1 0 40-17.9 40-40l0-16.2c.3-2.6 .5-5.3 .5-8.1l-.7-160.2 32 0z" />
                             </svg>
                             <span>Dashboard</span>
                         </a>
-                        <a href="/profil" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
+                        <a href="/dashboard/users/{{ auth()->user()->username }}"
+                            class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="h-5 w-5">
                                 <path fill-rule="evenodd"
