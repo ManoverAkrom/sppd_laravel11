@@ -24,7 +24,7 @@
                                 <td scope="row" class="w-10 ps-2 pe-1 py-3 text-left text-wrap border-1">
                                     : </td>
                                 <td class="ps-2 pe-1 py-3 text-left text-wrap border-1 uppercase">
-                                    {{ $component->name }}
+                                    {{ $fcomponent->name }}
                                 </td>
                             </tr>
                             <tr class="dark:border-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-600">
@@ -34,7 +34,7 @@
                                 <td scope="row" class="w-10 ps-2 pe-1 py-3 text-left text-wrap border-1">
                                     : </td>
                                 <td class="ps-2 pe-1 py-3 text-left text-wrap border-1 uppercase">
-                                    {{ $component->amount }}
+                                    {{ $fcomponent->amount }}
                                 </td>
                             </tr>
                             <tr class="dark:border-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-600">

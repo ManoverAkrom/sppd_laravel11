@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('travel_components', function (Blueprint $table) {
+        Schema::create('komponen_biayas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('travel_category_id')->constrained(
-                table: 'travel_categories', indexName: 'travel_category_id'
-            );
+            $table->foreignId('kategori_id')->constrained('kategori_biayas')->onDelete('cascade');
             $table->string('name');
-            $table->string('amount');
+            $table->string('kode')->unique();
+            $table->integer('biaya');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('komponen_biayas');
     }
 };

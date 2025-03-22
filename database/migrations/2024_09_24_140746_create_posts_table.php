@@ -25,10 +25,12 @@ return new class extends Migration
             // $table->timestamps();
 
             $table->foreignId('author_id')->constrained(
-                table: 'users', indexName: 'posts_author_id'
+                table: 'users',
+                indexName: 'posts_author_id'
             );
             $table->foreignId('category_id')->constrained(
-                table: 'categories', indexName: 'posts_category_id'
+                table: 'categories',
+                indexName: 'posts_category_id'
             );
 
             $table->string('slug')->unique();
@@ -43,10 +45,12 @@ return new class extends Migration
             $table->string('file')->nullable();
             // Data Perjalanan Dinas
             $table->foreignId('name_id')->constrained(
-                table: 'users', indexName: 'posts_name_id'
+                table: 'users',
+                indexName: 'posts_name_id'
             );
             $table->foreignId('follower_id')->constrained(
-                table: 'users', indexName: 'posts_follower_id'
+                table: 'users',
+                indexName: 'posts_follower_id'
             )->nullable();
             // $table->string('nip')->nullable();
             // $table->string('pengikut')->nullable();
@@ -58,11 +62,10 @@ return new class extends Migration
             $table->time('jam_berangkat')->default('08:00:00');
             $table->string('maksud')->nullable();
             $table->string('keterangan')->nullable();
-            
-            $table->enum('status', ['diajukan', 'disetujui', 'ditolak'])->default('diajukan');
-            
+
+            $table->enum('status', ['diajukan', 'disetujui', 'ditolak', 'done'])->default('diajukan');
+
             $table->timestamps();
-            
         });
     }
 

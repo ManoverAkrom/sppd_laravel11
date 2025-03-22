@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('finance_components', function (Blueprint $table) {
+        Schema::create('fcomponents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('finance_category_id')->constrained(
-                table: 'finance_categories', indexName: 'finance_category_id'
-            );
+            // $table->foreignId('finance_category_id')->constrained(
+            //     table: 'finance_categories', indexName: 'finance_category_id'
+            // );
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('amount');
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('finance_components');
+        Schema::dropIfExists('fcomponents');
     }
 };

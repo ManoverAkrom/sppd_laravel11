@@ -20,6 +20,7 @@ class Category extends Model
     {
         return $this->hasMany(Post::class);
     }
+    
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class);

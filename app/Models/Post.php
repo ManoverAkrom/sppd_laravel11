@@ -21,6 +21,7 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
     public function name(): BelongsTo
     {
         return $this->belongsTo(User::class);

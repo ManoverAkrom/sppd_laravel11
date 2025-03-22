@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Outcome;
 use App\Models\Category;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 // use Barryvdh\DomPDF\Facade as PDF;
-use PDF;
+use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPostController extends Controller
 {
@@ -18,7 +19,7 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->role == 'master' || auth()->user()->role == 'admin'){
+        if (auth()->user()->role == 'master' || auth()->user()->role == 'admin') {
             return view('dashboard.posts.index', [
                 'title' => 'Daftar Surat Tugas Anda',
                 'posts' => Post::filter(request(['search', 'category', 'author', 'name']))->latest()->paginate(10)->withQueryString(),
@@ -48,7 +49,7 @@ class DashboardPostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {
         $validatedData = $request->validate([
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
@@ -73,7 +74,7 @@ class DashboardPostController extends Controller
             'no_spt' => 'nullable'
         ]);
 
-        if($request->file('file')) {
+        if ($request->file('file')) {
             $validatedData['file'] = $request->file('file')->store('post-file');
         }
 
@@ -139,14 +140,14 @@ class DashboardPostController extends Controller
             'no_spt' => 'nullable'
         ];
 
-        if($request->slug != $post->slug) {
+        if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
 
         $validatedData = $request->validate($rules);
 
-        if($request->file('file')) {
-            if($request->oldFile){
+        if ($request->file('file')) {
+            if ($request->oldFile) {
                 Storage::delete($request->oldFile);
             }
             $validatedData['file'] = $request->file('file')->store('post-file');
@@ -155,7 +156,7 @@ class DashboardPostController extends Controller
         $validatedData['author_id'] = auth()->user()->id;
 
         Post::where('id', $post->id)
-        ->update($validatedData);
+            ->update($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'Edit Surat Tugas ' . $post->name->name  . ' (' . $post->maksud .  ') Sudah Tersimpan');
     }
@@ -165,7 +166,7 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->file){
+        if ($post->file) {
             Storage::delete($post->file);
         }
         Post::destroy($post->id);
@@ -177,6 +178,4 @@ class DashboardPostController extends Controller
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
-
-
 }

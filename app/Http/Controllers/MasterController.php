@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Outcome;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -72,15 +74,32 @@ class MasterController extends Controller
     {
         //
     }
+    public function approve($id)
+    {
+        Log::info("Approve method called for slug: " . $id);
 
-    public function accept(Post $post) {
-        Post::where('id', $post->id)->update(['status'=>'disetujui']);
+        $sppd = Post::findOrFail($id);
+
+        $sppd->status = 'disetujui';
+        $sppd->save();
+
+        // Tambahkan ke tabel outcomes
+        Outcome::create([
+            'sppd_id' => $sppd->id,
+        ]);
+        return redirect('/dashboard/master')->with('success', 'Data SPPD ' . $sppd->name->name  . ' perihal ' . $sppd->maksud .  ', Berhasil disetujui');
+    }
+
+    public function accept(Post $post)
+    {
+        Post::where('id', $post->id)->update(['status' => 'disetujui']);
 
         return redirect('/dashboard/master')->with('success', 'Perjalanan Dinas ' . $post->name->name  . ' (' . $post->maksud .  ') Telah disetujui');
     }
 
-    public function reject(Post $post) {
-        Post::where('id', $post->id)->update(['status'=>'ditolak']);
+    public function reject(Post $post)
+    {
+        Post::where('id', $post->id)->update(['status' => 'ditolak']);
 
         return redirect('/dashboard/master')->with('error', 'Perjalanan Dinas ' . $post->name->name  . ' (' . $post->maksud .  ') Telah ditolak');
     }
