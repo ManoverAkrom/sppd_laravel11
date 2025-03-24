@@ -10,7 +10,6 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use Illuminate\Database\Query\IndexHint;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterController;
@@ -23,9 +22,7 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\KategoriBiayaController;
 use App\Http\Controllers\KomponenBiayaController;
-
-
-
+use App\Http\Controllers\BendaharaReportController;
 // -------------------------------------------------------------------------
 // WPU-Blog
 // -------------------------------------------------------------------------
@@ -43,7 +40,6 @@ Route::get('/about', function () {
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
-
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -68,7 +64,6 @@ Route::get('/dashboard/pdf/{post:slug}', [PDFController::class, 'summaryPDF'])->
 // Rute Master
 Route::resource('/dashboard/master', MasterController::class)->middleware('auth');
 Route::post('dashboard/master/{id}/approve', [MasterController::class, 'approve']);
-// Route::get('/dashboard/master/accept/{post:slug}', [MasterController::class, 'accept'])->middleware('auth');
 Route::get('/dashboard/master/reject/{post:slug}', [MasterController::class, 'reject'])->middleware('auth');
 
 Route::resource('/dashboard/institutes', InstituteController::class)->middleware('auth');
@@ -77,4 +72,13 @@ Route::resource('/dashboard/institutes', InstituteController::class)->middleware
 Route::resource('/dashboard/kategori_biaya', KategoriBiayaController::class)->middleware('auth');
 Route::resource('/dashboard/komponen_biaya', KomponenBiayaController::class)->middleware('auth');
 Route::resource('/dashboard/outcomes', OutcomeController::class)->middleware('auth');
-// Route::get('/dashboard/outcomes/create/{sppd_id}', [OutcomeController::class, 'create'])->name('outcomes.create');
+Route::get('/get-components/{categoryId}', [OutcomeController::class, 'getComponentsByCategory'])->middleware('auth');
+Route::get('/get-biaya/{componentId}', [OutcomeController::class, 'getBiaya'])->middleware('auth');
+Route::get('/bendahara/report', [BendaharaReportController::class, 'index'])->name('bendahara.report');
+Route::get('/api/outcomes/{sppdId}', [BendaharaReportController::class, 'getOutcomesBySppdId']);
+Route::get('/report/edit/{id}', [BendaharaReportController::class, 'edit'])->name('report.edit');
+Route::put('/report/update/{id}', [BendaharaReportController::class, 'update'])->name('report.update');
+Route::get('/get-components/{categoryId}', [BendaharaReportController::class, 'get_components'])->middleware('auth');
+Route::get('/get-biaya/{componentId}', [BendaharaReportController::class, 'get_biaya'])->middleware('auth');
+Route::get('/bendahara/report/download', [BendaharaReportController::class, 'downloadReport'])->name('bendahara.report.download');
+Route::get('/bendahara/print-report', [BendaharaReportController::class, 'printReport'])->name('print.report');

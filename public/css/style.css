@@ -2,3 +2,20 @@
     max-width: 650px;
     margin: 35px auto;
 }
+
+.sort-indicator {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 0.8em;
+    color: #888; /* Warna indikator */
+}
+
+.sort-asc::after {
+    content: "▲"; /* Segitiga atas */
+    color: #454545; /* Warna segitiga */
+}
+
+.sort-desc::after {
+    content: "▼"; /* Segitiga bawah */
+    color: #454545; /* Warna segitiga */
+}

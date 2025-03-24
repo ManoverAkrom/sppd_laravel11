@@ -11,8 +11,7 @@
         <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
                 <div class="w-full md:w-1/2">
-                    <form action="{{ route('komponen_biaya.index') }}" method="GET" class="flex items-center"
-                        onsubmit="event.preventDefault(); searchComponents();">
+                    <form action="" method="GET" class="flex items-center">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div id="search-feedback" class="text-red-500 hidden">No results found.</div>
 

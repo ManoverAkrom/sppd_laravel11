@@ -142,7 +142,7 @@
                                 Status
                             </th>
                             <th scope="col" class="w-24 px-2 py-3 text-center">
-                                Aksi
+                                Action
                             </th>
                         </tr>
                     </thead>

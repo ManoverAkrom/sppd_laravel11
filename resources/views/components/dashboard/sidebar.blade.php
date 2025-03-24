@@ -235,7 +235,7 @@
                 </li>
 
                 <li class="mb-4 transition-all duration-300 hover:translate-x-1">
-                    <a href="/dashboard/posts/create/"
+                    <a href="/bendahara/report/"
                         class="text-gray-700 text-sm flex items-center hover:text-gray-900 hover:font-semibold">
                         <svg class="w-[23px] h-[23px] text-gray-400 dark:text-white hover:text-gray-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"

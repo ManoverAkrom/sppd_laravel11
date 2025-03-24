@@ -6,7 +6,7 @@
 
 
     <ul class="ml-auto flex items-center">
-        <li class="mr-1 dropdown">
+        {{-- <li class="mr-1 dropdown">
             <button type="button"
                 class="dropdown-toggle text-gray-400 mr-4 w-8 h-8 rounded flex items-center justify-center  hover:text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -28,8 +28,8 @@
                     </div>
                 </form>
             </div>
-        </li>
-        <li class="dropdown">
+        </li> --}}
+        {{-- <li class="dropdown">
             <button type="button"
                 class="dropdown-toggle text-gray-400 mr-4 w-8 h-8 rounded flex items-center justify-center  hover:text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -62,55 +62,8 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        New order</div>
-                                    <div class="text-[11px] text-gray-400">from a user</div>
-                                </div>
-                            </a>
-                        </li>
                     </ul>
+
                     <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification" data-page="messages">
                         <li>
                             <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
@@ -124,61 +77,14 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
-                                <img src="https://placehold.co/32x32" alt=""
-                                    class="w-8 h-8 rounded block object-cover align-middle">
-                                <div class="ml-2">
-                                    <div
-                                        class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                                        John Doe</div>
-                                    <div class="text-[11px] text-gray-400">Hello there!</div>
-                                </div>
-                            </a>
-                        </li>
                     </ul>
+
                 </div>
             </div>
-        </li>
+        </li> --}}
         <button id="fullscreen-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                class="hover:bg-gray-100 rounded-full" viewBox="0 0 24 24" style="fill: gray;transform: ;msFilter:;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="hover:bg-gray-100 rounded-full"
+                viewBox="0 0 24 24" style="fill: gray;transform: ;msFilter:;">
                 <path d="M5 5h5V3H3v7h2zm5 14H5v-5H3v7h7zm11-5h-2v5h-5v2h7zm-2-4h2V3h-7v2h5z"></path>
             </svg>
         </button>
@@ -239,8 +145,8 @@
                             class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
                             @if (auth()->user()->foto == '' || auth()->user()->foto == 'NULL')
                                 <svg class="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    fill="currentColor" viewBox="0 0 24 24">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path fill-rule="evenodd"
                                         d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
                                         clip-rule="evenodd"></path>
@@ -265,10 +171,10 @@
                             <div class="text-xs text-slate-400">{{ auth()->user()->email }}</div>
                         </div>
                     </div>
-                    <div class="border-t border-slate-500/30"></div>
+                    {{-- <div class="border-t border-slate-500/30"></div>
                     <div class="flex justify-around">
                         <div class="flex flex-col items-center justify-center">
-                            <span class="text-3xl font-semibold">268</span>
+                            <span class="text-3xl font-semibold">{{ $myPosts }}</span>
                             <span class="text-sm text-slate-400">Following</span>
                         </div>
                         <div class="flex flex-col items-center justify-center">
@@ -276,11 +182,11 @@
                             <span class="text-sm text-slate-400">Followers</span>
                         </div>
                     </div>
-                    <div class="border-t border-slate-500/30"></div>
+                    <div class="border-t border-slate-500/30"></div> --}}
                     <div class="flex flex-col">
                         <a href="/dashboard" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="20"
-                                fill="currentColor" viewBox="0 0 576 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="20" fill="currentColor"
+                                viewBox="0 0 576 512">
                                 <path fill-rule="evenodd"
                                     d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185l0-121c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32l0 36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1l32 0 0 69.7c-.1 .9-.1 1.8-.1 2.8l0 112c0 22.1 17.9 40 40 40l16 0c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2l31.9 0 24 0c22.1 0 40-17.9 40-40l0-24 0-64c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 64 0 24c0 22.1 17.9 40 40 40l24 0 32.5 0c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1l16 0c22.1 0 40-17.9 40-40l0-16.2c.3-2.6 .5-5.3 .5-8.1l-.7-160.2 32 0z" />
                             </svg>
@@ -296,7 +202,7 @@
                             </svg>
                             <span>Profile</span>
                         </a>
-                        <a href="#" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
+                        {{-- <a href="#" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-gray-200">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="h-5 w-5">
                                 <path fill-rule="evenodd"
@@ -304,7 +210,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                             <span>Help Center</span>
-                        </a>
+                        </a> --}}
                     </div>
                     <form action="/logout" method="POST">
                         @csrf

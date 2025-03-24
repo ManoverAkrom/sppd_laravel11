@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Outcome;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -12,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $title = 'Dahsboard'; 
+        $title = 'Dahsboard';
         $posts = Post::filter(request(['search', 'category', 'author', 'name']))->orderBy('tgl_berangkat', 'DESC')->paginate(10)->withQueryString();
         $users = User::filter(request(['search', 'category', 'author', 'name']))->orderBy('updated_at', 'DESC')->paginate(5)->withQueryString();
 
@@ -21,8 +22,8 @@ class DashboardController extends Controller
         $totalAdmin = User::where('role', 'admin')->count();
         $totalTreasurer = User::where('role', 'treasurer')->count();
 
-        $percentAdmin = ($totalAdmin / $totalUsers) * 100 ;
-        $percentUser = ($totalUser / $totalUsers) * 100 ;
+        $percentAdmin = ($totalAdmin / $totalUsers) * 100;
+        $percentUser = ($totalUser / $totalUsers) * 100;
 
         $todayDate = Carbon::now()->format('d-m-Y');
         $thisMonth = Carbon::now()->format('m');
@@ -31,24 +32,29 @@ class DashboardController extends Controller
         $todayPost = Post::whereDate('created_at', $todayDate)->count();
         $thisMonthPost = Post::whereMonth('created_at', $thisMonth)->count();
 
-        if( $percentUser < 50 ) {
+        $myPosts = Post::where('author_id', auth()->user()->id)->count();
+
+        if ($percentUser < 50) {
             $colorUser = 'pink';
-        } elseif ( $percentUser < 75 ) {
+        } elseif ($percentUser < 75) {
             $colorUser = 'red';
         } else {
             $colorUser = 'blue';
         }
 
-        if( $percentAdmin < 50) {
+        if ($percentAdmin < 50) {
             $colorAdmin = 'pink';
-        } elseif ( $percentAdmin < 75) {
+        } elseif ($percentAdmin < 75) {
             $colorAdmin = 'red';
         } else {
             $colorAdmin = 'blue';
         }
 
-        return view('dashboard.index', 
-            compact('title', 'posts', 'users', 'totalUsers', 'totalUser', 'totalAdmin', 'totalTreasurer', 'percentAdmin', 'percentUser', 'totalPosts', 'thisMonthPost', 'todayPost', 'colorAdmin', 'colorUser'),
+        $totalPengeluaran = Outcome::sum('biaya');
+
+        return view(
+            'dashboard.index',
+            compact('title', 'posts', 'users', 'totalUsers', 'totalUser', 'totalAdmin', 'totalTreasurer', 'percentAdmin', 'percentUser', 'totalPosts', 'thisMonthPost', 'todayPost', 'colorAdmin', 'colorUser', 'totalPengeluaran', 'myPosts'),
         );
     }
 }

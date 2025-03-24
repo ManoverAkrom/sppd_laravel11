@@ -96,8 +96,8 @@
             <div class="flex">
                 <div class="flex w-10/12 items-center">
                     <div
-                        class="relative items-center z-10 text-3xl text-left font-bold transition-all duration-300 group-hover:text-white/90 align-middle">
-                        Rp. 123.456.789
+                        class="relative items-center z-10 text-2xl text-left font-bold transition-all duration-300 group-hover:text-white/90 align-middle">
+                        Rp. {{ number_format($totalPengeluaran, 1, ',', '.') }}
                     </div>
                 </div>
                 <div class="w-2/12">

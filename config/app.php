@@ -83,7 +83,8 @@ return [
     |
     */
 
-    'locale' => env('LOCALE'), 'en',
+    'locale' => env('LOCALE'),
+    'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,7 +110,8 @@ return [
     |
     */
 
-    'faker_locale' => env('FAKER_LOCALE'), 'en_US',
+    'faker_locale' => env('FAKER_LOCALE'),
+    'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,12 +161,13 @@ return [
         /*
          * Package Service Providers...
          */
-        Illuminate\Concurrency\ConcurrencyServiceProvider::class, 
+        Illuminate\Concurrency\ConcurrencyServiceProvider::class,
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        // Barryvdh\LaravelDompdf\ServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
